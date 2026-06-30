@@ -63,8 +63,13 @@ const links = [
         <div class="mx-auto max-w-3xl sm:mx-0">
           <p class="text-xs uppercase tracking-[0.3em] text-zinc-500">Portfolio / Home</p>
           <h1 class="mt-4 text-4xl font-semibold tracking-tight text-zinc-50 sm:text-5xl lg:text-6xl">
-            Isac Dénis Hounsinou
-            <span class="block text-zinc-400">Isac Lussie</span>
+            <span class="inline-flex items-center gap-2">
+              Isac Dénis Hounsinou
+              <Sparkles class="h-5 w-5 text-sky-300/90 animate-glowPulse" />
+            </span>
+            <span class="block bg-gradient-to-r from-sky-300 via-indigo-300 to-fuchsia-300 bg-clip-text text-transparent animate-text-shimmer">
+              Isac Lussie
+            </span>
           </h1>
           <p class="mt-5 max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg">
             Étudiant en Master en Sécurité Informatique & Développeur Full-Stack
@@ -120,41 +125,16 @@ const links = [
           </div>
 
           <div class="mt-6 space-y-4">
-            <div class="space-y-3">
-              <p class="text-xs uppercase tracking-[0.18em] text-zinc-500">Frameworks & Core Stack</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Laravel</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Vue.js</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Inertia.js</span>
+            <template v-for="group in stackGroups" :key="group.label">
+              <div class="space-y-3">
+                <p class="text-xs uppercase tracking-[0.18em] text-zinc-500">{{ group.label }}</p>
+                <div class="flex flex-wrap gap-2">
+                  <span v-for="item in group.items" :key="item" class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-all duration-300 hover:border-sky-400/40 hover:text-zinc-50 hover:shadow-[0_0_0_6px_rgba(59,130,246,0.08)]">
+                    {{ item }}
+                  </span>
+                </div>
               </div>
-            </div>
-
-            <div class="space-y-3">
-              <p class="text-xs uppercase tracking-[0.18em] text-zinc-500">Langages</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">PHP</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">JavaScript</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Python</span>
-              </div>
-            </div>
-
-            <div class="space-y-3">
-              <p class="text-xs uppercase tracking-[0.18em] text-zinc-500">Systèmes & Sécurité</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Linux (Ubuntu, Debian)</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Sécurité des SI</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Hacking éthique</span>
-              </div>
-            </div>
-
-            <div class="space-y-3">
-              <p class="text-xs uppercase tracking-[0.18em] text-zinc-500">Écosystèmes étudiés</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Web3</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Distributed Ledgers</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-colors duration-300 hover:border-zinc-700 hover:text-zinc-50">Hedera Hashgraph</span>
-              </div>
-            </div>
+            </template>
           </div>
         </article>
 
@@ -174,10 +154,9 @@ const links = [
             </p>
 
             <div class="flex flex-wrap gap-2">
-              <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1 text-xs text-zinc-300">Laravel</span>
-              <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1 text-xs text-zinc-300">Vue.js</span>
-              <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1 text-xs text-zinc-300">Inertia.js</span>
-              <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1 text-xs text-zinc-300">PostgreSQL</span>
+              <span v-for="tech in projectTechs" :key="tech" class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1 text-xs text-zinc-300 transition-all duration-300 hover:border-sky-400/40 hover:text-zinc-50 hover:shadow-[0_0_0_6px_rgba(59,130,246,0.08)]">
+                {{ tech }}
+              </span>
             </div>
           </div>
         </article>
@@ -238,9 +217,9 @@ const links = [
               </div>
 
               <div class="mt-5 flex flex-wrap gap-2">
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300">Français · Natif</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300">Anglais · Technique</span>
-                <span class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300">Japonais · Notions — Préparation JLPT N5</span>
+                <span v-for="language in languages" :key="language" class="rounded-full border border-zinc-800 bg-zinc-950/50 px-3 py-1.5 text-xs font-medium text-zinc-300 transition-all duration-300 hover:border-sky-400/40 hover:text-zinc-50 hover:shadow-[0_0_0_6px_rgba(59,130,246,0.08)]">
+                  {{ language }}
+                </span>
               </div>
             </div>
 

@@ -21,3 +21,29 @@ body {
   min-height: 100vh;
 }
 
+.animate-glowPulse {
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+.animate-text-shimmer {
+  animation: textShimmer 3.5s linear infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 16px rgba(56, 189, 248, 0.5), 0 0 36px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 24px rgba(56, 189, 248, 0.8), 0 0 48px rgba(59, 130, 246, 0.3);
+  }
+}
+
+@keyframes textShimmer {
+  0%, 100% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+}
+
